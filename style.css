@@ -1388,59 +1388,47 @@ nav a:hover {
 }
 
 
-/* =================================
-   EDGE OF THE UNIVERSE — FINAL LAYOUT
-   Description LEFT / advertisement RIGHT
-================================= */
-
-#projects .project-feature {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: center;
-    gap: clamp(24px, 4vw, 56px);
-    width: 100%;
-    margin-top: 40px;
-    padding: clamp(18px, 3vw, 36px);
-    box-sizing: border-box;
+/* =========================================================
+   MEET THE TEAM — TYPOGRAPHIC NEON LIST (NO CIRCLES)
+   ========================================================= */
+.team-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
 }
-
-#projects .project-info {
-    grid-column: 1;
-    grid-row: 1;
-    min-width: 0;
-    width: 100%;
+.team-section::before {
+    content: ""; position: absolute; z-index: -1; inset: 8% -12% auto auto;
+    width: min(48vw, 620px); height: 420px; border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(0,230,249,.10), rgba(146,79,252,.07) 38%, transparent 70%);
+    filter: blur(28px); pointer-events: none; animation: teamAmbient 9s ease-in-out infinite alternate;
 }
-
-#projects .project-image {
-    grid-column: 2;
-    grid-row: 1;
-    min-width: 0;
-    width: 100%;
-    justify-self: stretch;
+.team-intro { color: var(--text-muted, #a7a8bd); max-width: 620px; margin: -8px 0 34px; }
+.team-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 42px; position: relative; }
+.team-member {
+    min-width: 0; position: relative; display: flex; align-items: center; gap: 22px;
+    padding: 25px 4px; border-bottom: 1px solid rgba(228,234,248,.12);
+    background: linear-gradient(90deg, rgba(0,230,249,.025), transparent 75%);
+    transition: transform .35s ease, border-color .35s ease, background .35s ease;
 }
-
-#projects .project-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: 560px;
-    object-fit: contain;
-    border-radius: 16px;
+.team-member::before {
+    content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 0;
+    background: linear-gradient(90deg, #00e6f9, #924ffc, transparent);
+    box-shadow: 0 0 12px rgba(0,230,249,.45); transition: width .45s ease;
 }
-
-@media (max-width: 768px) {
-    #projects .project-feature {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 24px;
-    }
-
-    #projects .project-info {
-        grid-column: 1;
-        grid-row: 1;
-    }
-
-    #projects .project-image {
-        grid-column: 1;
-        grid-row: 2;
-    }
+.team-member:hover { transform: translateX(7px); border-color: rgba(0,230,249,.22); background: linear-gradient(90deg, rgba(0,230,249,.075), rgba(146,79,252,.035) 65%, transparent); }
+.team-member:hover::before { width: 100%; }
+.team-initials {
+    flex: 0 0 auto; font-family: "Cascadia Code", monospace; font-size: clamp(1.8rem, 3vw, 2.65rem);
+    line-height: 1; font-weight: 800; letter-spacing: -.09em; color: #e4eaf8;
+    text-shadow: 0 0 8px rgba(0,230,249,.35), 0 0 24px rgba(146,79,252,.22);
+    transition: color .3s ease, text-shadow .3s ease;
 }
+.team-member:hover .team-initials { color: #fff; text-shadow: 0 0 9px rgba(0,230,249,.8), 0 0 28px rgba(146,79,252,.6); }
+.team-details { min-width: 0; flex: 1; }
+.team-details h3 { margin: 0 0 7px; color: #f3f5ff; font-size: 1.05rem; font-weight: 700; letter-spacing: .04em; }
+.team-details p { margin: 0; color: #a9adc4; font-size: .82rem; line-height: 1.65; }
+.team-index { align-self: flex-start; color: rgba(228,234,248,.35); font-family: "Cascadia Code", monospace; font-size: .72rem; letter-spacing: .12em; transition: color .3s ease; }
+.team-member:hover .team-index { color: #00e6f9; text-shadow: 0 0 12px rgba(0,230,249,.5); }
+@keyframes teamAmbient { from { transform: translate3d(0,-12px,0) scale(.96); opacity: .65; } to { transform: translate3d(-22px,18px,0) scale(1.08); opacity: 1; } }
+@media (max-width: 760px) { .team-list { grid-template-columns: 1fr; gap: 0; } .team-member { padding: 22px 2px; } .team-section::before { width: 90vw; right: -35vw; } }
+@media (prefers-reduced-motion: reduce) { .team-section::before, .team-member, .team-member::before, .team-initials { animation: none !important; transition: none !important; } }
