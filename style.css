@@ -1387,3 +1387,240 @@ nav a:hover {
     .about-visual::before, .about-visual::after { animation: none; }
     .about-value { transition: none; }
 }
+
+
+
+/* =========================================
+   ATOMIX CORP - MEET THE TEAM
+========================================= */
+
+#team {
+    position: relative;
+}
+
+/* TEAM INTRO */
+
+.team-intro {
+    max-width: 600px;
+    margin-bottom: 35px;
+    line-height: 1.8;
+    opacity: 0.75;
+}
+
+
+/* TEAM GRID */
+
+.team-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 25px;
+
+    margin-top: 40px;
+}
+
+
+/* TEAM CARDS */
+
+.team-card {
+    position: relative;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 221, 249, 0.07),
+            rgba(138, 40, 255, 0.07),
+            rgba(1, 2, 7, 0.95)
+        );
+
+    border: 1px solid rgba(0, 221, 249, 0.15);
+
+    backdrop-filter: blur(12px);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        background 0.4s ease;
+
+    overflow: hidden;
+}
+
+
+/* CARD HOVER */
+
+.team-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(0, 221, 249, 0.6);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 221, 249, 0.12),
+            rgba(138, 40, 255, 0.12),
+            rgba(1, 2, 7, 0.98)
+        );
+
+    box-shadow:
+        0 0 20px rgba(0, 221, 249, 0.12),
+        0 0 35px rgba(138, 40, 255, 0.08);
+}
+
+
+/* AVATAR */
+
+.team-avatar {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 50%;
+
+    font-size: 25px;
+    font-weight: 700;
+
+    color: #00DDF9;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 221, 249, 0.15),
+            rgba(138, 40, 255, 0.2)
+        );
+
+    border: 1px solid rgba(0, 221, 249, 0.35);
+
+    box-shadow:
+        0 0 15px rgba(0, 221, 249, 0.12);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        background 0.4s ease;
+}
+
+
+/* AVATAR HOVER */
+
+.team-card:hover .team-avatar {
+    transform: scale(1.08) rotate(5deg);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 221, 249, 0.25),
+            rgba(138, 40, 255, 0.3)
+        );
+
+    box-shadow:
+        0 0 20px rgba(0, 221, 249, 0.25),
+        0 0 30px rgba(138, 40, 255, 0.15);
+}
+
+
+/* MEMBER NAME */
+
+.team-card h3 {
+    margin: 0 0 15px;
+
+    font-size: 23px;
+
+    color: #E4EAF8;
+
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+
+/* NAME HOVER */
+
+.team-card:hover h3 {
+    color: #00DDF9;
+
+    text-shadow:
+        0 0 12px rgba(0, 221, 249, 0.25);
+}
+
+
+/* MEMBER ROLE */
+
+.team-role {
+    margin: 0;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    line-height: 1.8;
+
+    color: #00DDF9;
+
+    transition:
+        color 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+/* CARD ANIMATION */
+
+@keyframes teamCardEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.team-card {
+    animation:
+        teamCardEntrance 0.8s ease both;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .team-grid {
+        grid-template-columns:
+            repeat(auto-fit, minmax(200px, 1fr));
+
+        gap: 20px;
+    }
+
+    .team-card {
+        padding: 25px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-card {
+        padding: 25px;
+    }
+
+}
+
