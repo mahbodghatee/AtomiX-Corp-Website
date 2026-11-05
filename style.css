@@ -1829,40 +1829,72 @@ nav a.active::after {
 
 
 
+
 /* =========================================
-   CONTACT SECTION ALIGNMENT FIX
+   CONTACT SECTION - FULL WIDTH FIX
 ========================================= */
 
+/* Make the black background stretch across
+   the entire screen */
+
 #contact {
-    margin-left: 0;
+    position: relative;
+
+    width: 100vw;
+    max-width: none;
+
+    margin-left: calc(50% - 50vw);
     margin-right: 0;
 
-    padding-left: 0;
-    padding-right: 0;
+    box-sizing: border-box;
 
+    /* Full-width black background */
+    background: #010207;
+
+    /* Align text with the other sections */
+    padding-top: 70px;
+    padding-bottom: 70px;
+
+    padding-left: max(8%, calc((100vw - 1147px) / 2));
+    padding-right: max(8%, calc((100vw - 1147px) / 2));
+}
+
+
+/* Align the eyebrow text */
+
+#contact > .eyebrow {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+
+/* Align the heading */
+
+#contact > h2 {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+
+/* Prevent content from adding extra indentation */
+
+#contact > * {
     box-sizing: border-box;
 }
 
-/* Keep contact content aligned with other sections */
 
-#contact > .eyebrow,
-#contact > h2 {
-    margin-left: 0;
-}
+/* =========================================
+   CONTACT RESPONSIVE
+========================================= */
 
-/* Remove unexpected indentation */
+@media (max-width: 700px) {
 
-#contact > .eyebrow {
-    padding-left: 0;
-}
+    #contact {
+        padding-left: 24px;
+        padding-right: 24px;
 
-#contact > h2 {
-    padding-left: 0;
-}
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
 
-/* Keep the contact section width consistent */
-
-#contact {
-    width: 100%;
-    max-width: 100%;
 }
