@@ -1826,3 +1826,257 @@ nav a.active::after {
         transition: none;
     }
 }
+
+
+
+/* =========================================
+   MEET THE TEAM
+========================================= */
+
+#team {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Team introduction */
+
+.team-intro {
+    color: rgba(228, 234, 248, 0.65);
+
+    margin-top: 16px;
+    margin-bottom: 48px;
+
+    font-size: 15px;
+}
+
+
+/* Team grid */
+
+.team-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 30px;
+
+    margin-top: 50px;
+}
+
+
+/* Individual member */
+
+.team-member {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 190px;
+
+    padding: 30px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 221, 249, 0.035),
+            rgba(138, 40, 255, 0.055)
+        );
+
+    border: 1px solid rgba(228, 234, 248, 0.08);
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* Initials */
+
+.team-initials {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 76px;
+    height: 76px;
+
+    margin-bottom: 20px;
+
+    border-radius: 50%;
+
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    color: #e4eaf8;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00ddf9,
+            #0738db,
+            #8a28ff
+        );
+
+    box-shadow:
+        0 0 18px rgba(0, 221, 249, 0.18),
+        0 0 35px rgba(138, 40, 255, 0.12);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* Member name */
+
+.team-member h3 {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: #e4eaf8;
+
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+
+/* Hover effects */
+
+.team-member:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(0, 221, 249, 0.35);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 221, 249, 0.08),
+            rgba(138, 40, 255, 0.09)
+        );
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.2),
+        0 0 25px rgba(0, 221, 249, 0.06);
+}
+
+
+.team-member:hover .team-initials {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 22px rgba(0, 221, 249, 0.35),
+        0 0 45px rgba(138, 40, 255, 0.28);
+}
+
+
+.team-member:hover h3 {
+    color: #00ddf9;
+
+    text-shadow:
+        0 0 12px rgba(0, 221, 249, 0.35),
+        0 0 25px rgba(138, 40, 255, 0.2);
+}
+
+
+/* Entrance animation */
+
+@keyframes teamReveal {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.team-member {
+    animation: teamReveal 0.8s ease both;
+}
+
+
+.team-member:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.team-member:nth-child(2) {
+    animation-delay: 0.12s;
+}
+
+.team-member:nth-child(3) {
+    animation-delay: 0.19s;
+}
+
+.team-member:nth-child(4) {
+    animation-delay: 0.26s;
+}
+
+.team-member:nth-child(5) {
+    animation-delay: 0.33s;
+}
+
+.team-member:nth-child(6) {
+    animation-delay: 0.40s;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .team-member {
+        min-height: 160px;
+    }
+
+}
+
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .team-member {
+        animation: none;
+        transition: none;
+    }
+
+    .team-initials,
+    .team-member h3 {
+        transition: none;
+    }
+
+}
