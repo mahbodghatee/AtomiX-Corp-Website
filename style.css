@@ -1978,3 +1978,34 @@ nav a.active::after {
         transition: none;
     }
 }
+
+/* FOOTER WITH EMAIL COLUMN */
+
+.footer-content {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.footer-column a[href^="mailto:"] {
+    overflow-wrap: anywhere;
+    color: #e4eaf8;
+    transition: color 0.3s ease;
+}
+
+.footer-column a[href^="mailto:"]:hover {
+    color: #00DDF9;
+    text-shadow: 0 0 12px rgba(0, 221, 249, 0.5);
+}
+
+/* RESPONSIVE FOOTER */
+
+@media (max-width: 900px) {
+    .footer-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
