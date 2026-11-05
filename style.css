@@ -1386,3 +1386,61 @@ nav a:hover {
     .about-visual::before, .about-visual::after { animation: none; }
     .about-value { transition: none; }
 }
+
+
+/* =================================
+   EDGE OF THE UNIVERSE — FINAL LAYOUT
+   Description LEFT / advertisement RIGHT
+================================= */
+
+#projects .project-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(24px, 4vw, 56px);
+    width: 100%;
+    margin-top: 40px;
+    padding: clamp(18px, 3vw, 36px);
+    box-sizing: border-box;
+}
+
+#projects .project-info {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    width: 100%;
+}
+
+#projects .project-image {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    width: 100%;
+    justify-self: stretch;
+}
+
+#projects .project-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 560px;
+    object-fit: contain;
+    border-radius: 16px;
+}
+
+@media (max-width: 768px) {
+    #projects .project-feature {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    #projects .project-info {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    #projects .project-image {
+        grid-column: 1;
+        grid-row: 2;
+    }
+}
