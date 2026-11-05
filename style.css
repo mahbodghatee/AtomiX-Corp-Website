@@ -1826,3 +1826,43 @@ nav a.active::after {
         transition: none;
     }
 }
+
+
+
+/* =========================================
+   CONTACT SECTION ALIGNMENT FIX
+========================================= */
+
+#contact {
+    margin-left: 0;
+    margin-right: 0;
+
+    padding-left: 0;
+    padding-right: 0;
+
+    box-sizing: border-box;
+}
+
+/* Keep contact content aligned with other sections */
+
+#contact > .eyebrow,
+#contact > h2 {
+    margin-left: 0;
+}
+
+/* Remove unexpected indentation */
+
+#contact > .eyebrow {
+    padding-left: 0;
+}
+
+#contact > h2 {
+    padding-left: 0;
+}
+
+/* Keep the contact section width consistent */
+
+#contact {
+    width: 100%;
+    max-width: 100%;
+}
