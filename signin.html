@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#010207">
+    <title>Sign In | AtomiX Corp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <a class="brand" href="index.html">
+            <img src="images/AtomiX_Corp_Logo.png" alt="AtomiX Corp Logo">
+            <span>AtomiX Corp</span>
+        </a>
+
+        <nav aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="about_us.html">About</a>
+            <a href="assets.html">Assets</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="auth-section">
+            <div class="auth-container">
+
+                <div class="auth-heading">
+                    <p class="eyebrow">WELCOME BACK</p>
+                    <h1>Sign in to <span>AtomiX.</span></h1>
+                    <p>Access your AtomiX account and stay connected with the ecosystem.</p>
+                </div>
+
+                <form id="signin-form" class="auth-form">
+
+                    <div class="auth-field">
+                        <label for="signin-email">Email address</label>
+                        <input
+                            type="email"
+                            id="signin-email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="auth-field">
+                        <label for="signin-password">Password</label>
+                        <input
+                            type="password"
+                            id="signin-password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" class="auth-submit">
+                        Sign In
+                    </button>
+
+                    <p id="signin-message" class="auth-message"
+                       role="status" aria-live="polite"></p>
+
+                </form>
+
+                <div class="auth-switch">
+                    Don't have an account?
+                    <a href="signup.html">Create one</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> AtomiX Corp.</p>
+            <span class="footer-bottom-label">CREATING WHAT'S NEXT</span>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
