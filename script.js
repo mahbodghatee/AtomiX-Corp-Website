@@ -24,7 +24,7 @@ async function signUp(email, password) {
         email: email,
         password: password,
         options: {
-            emailRedirectTo: window.location.origin + "/signin.html"
+            emailRedirectTo: "https://mahbodghatee.github.io/AtomiX-Corp-Website/signin.html"
         }
     });
 
