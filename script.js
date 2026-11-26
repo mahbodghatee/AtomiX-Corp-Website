@@ -194,3 +194,49 @@ if (signInForm) {
         }
     });
 }
+
+
+const signUpForm = document.getElementById("signup-form");
+
+if (signUpForm) {
+    signUpForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const email = document.getElementById("signup-email").value.trim();
+        const password = document.getElementById("signup-password").value;
+        const confirmPassword = document.getElementById("signup-confirm-password").value;
+
+        const message = document.getElementById("signup-message");
+        const button = signUpForm.querySelector("button[type='submit']");
+
+        message.textContent = "";
+        message.className = "auth-message";
+
+        if (password !== confirmPassword) {
+            message.textContent = "Passwords do not match.";
+            message.classList.add("error");
+            return;
+        }
+
+        button.disabled = true;
+        button.textContent = "Creating Account...";
+
+        try {
+            await signUp(email, password);
+
+            message.textContent =
+                "Account created! Check your email to confirm your account.";
+
+            message.classList.add("success");
+
+            signUpForm.reset();
+
+        } catch (error) {
+            message.textContent = error.message;
+            message.classList.add("error");
+        } finally {
+            button.disabled = false;
+            button.textContent = "Create Account";
+        }
+    });
+}
