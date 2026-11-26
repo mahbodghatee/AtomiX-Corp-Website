@@ -6,7 +6,7 @@
 // Supabase configuration
 const SUPABASE_URL = "https://wcqldiflesfuqjpugelp.supabase.co";
 
-const SUPABASE_KEY = "YOUR_SUPABASE_PUBLISHABLE_KEY";
+const SUPABASE_KEY = "sb_publishable_R4yvoBbqAjvgCcrEe09QJw_b-QUGVzI";
 
 // Initialize Supabase
 const supabaseClient = window.supabase.createClient(
