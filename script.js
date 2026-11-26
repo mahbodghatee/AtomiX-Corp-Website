@@ -153,3 +153,44 @@ supabaseClient.auth.onAuthStateChange((event, session) => {
         updateProfileButton(null);
     }
 });
+
+
+// ==========================================
+// SIGN IN FORM
+// ==========================================
+
+const signInForm = document.getElementById("signin-form");
+
+if (signInForm) {
+    signInForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const email = document.getElementById("signin-email").value.trim();
+        const password = document.getElementById("signin-password").value;
+
+        const message = document.getElementById("signin-message");
+        const button = signInForm.querySelector("button[type='submit']");
+
+        message.textContent = "";
+        message.className = "auth-message";
+
+        button.disabled = true;
+        button.textContent = "Signing in...";
+
+        try {
+            await signIn(email, password);
+
+            message.textContent = "Sign in successful! Welcome back.";
+            message.classList.add("success");
+
+            window.location.href = "index.html";
+
+        } catch (error) {
+            message.textContent = error.message;
+            message.classList.add("error");
+
+            button.disabled = false;
+            button.textContent = "Sign In";
+        }
+    });
+}
