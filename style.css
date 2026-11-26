@@ -1388,3 +1388,19 @@ nav a.active {
         transition: none;
     }
 }
+
+/* ---------- USER PROFILE INITIAL ---------- */
+
+.profile-initial {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    color: var(--cyan);
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    user-select: none;
+}
